@@ -19,6 +19,7 @@ public class CenterPanel extends JPanel implements ActionListener {
 
     private JButton[] button;
     private int turn = 0;
+    private SouthPanel southPanel;
 //    private ImageIcon X = new ImageIcon(getClass().getClassLoader().getResource("X.png"));
 //    private ImageIcon O = new ImageIcon(getClass().getClassLoader().getResource("O.png"));
     private ImageIcon X = new ImageIcon(("src/res/X.png"));
@@ -26,6 +27,7 @@ public class CenterPanel extends JPanel implements ActionListener {
     private ImageIcon BG = new ImageIcon(("src/res/bg.png"));
     
     public CenterPanel() {
+        
         //Assigning  Buttons
         button = new JButton[9];
         for(int i = 0;i < 9;i++){
@@ -71,22 +73,16 @@ public class CenterPanel extends JPanel implements ActionListener {
         //check winning patterns
         if(hor(O) || ver(O) || dia(O)){
             System.out.println("Player O wins!");
-            for(int i = 0;i < 9;i++){
-                button[i].setBackground(Color.BLACK);
-                button[i].setIcon(BG);
-            }
+            addCount(2);
+            reset();
         }else if(hor(X) || ver(X) || dia(X)){
             System.out.println("Player X wins!");
-            for(int i = 0;i < 9;i++){
-                button[i].setBackground(Color.BLACK);
-                button[i].setIcon(BG);
-            }
+            addCount(1);
+            reset();
         }else if (draw()){
             System.out.println("Draw!");
-            for(int i = 0;i < 9;i++){
-                button[i].setBackground(Color.BLACK);
-                button[i].setIcon(BG);
-            }
+            addCount(3);
+            reset();
         }
     }
     
@@ -140,6 +136,33 @@ public class CenterPanel extends JPanel implements ActionListener {
         }else{
             return true;
         }
+    }
+    
+    public void reset(){
+        for(int i = 0;i < 9;i++){
+            button[i].setBackground(Color.BLACK);
+            button[i].setIcon(BG);
+        }
+        turn = 0;
+    }
+    
+    public void setSouthPanel(SouthPanel southPanel){
+        this.southPanel = southPanel;
+    }
+    
+    public void addCount(int count){
+        switch(count){
+            case 1:
+                southPanel.addXCount(1);
+                break;
+            case 2:
+                southPanel.addOCount(1);
+                break;
+            case 3:
+                southPanel.addDrawCount(1);
+                break;
+        }
+        southPanel.displayCount();
     }
     
 }
