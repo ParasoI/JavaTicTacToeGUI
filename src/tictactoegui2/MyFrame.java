@@ -16,6 +16,8 @@ public class MyFrame extends JFrame {
         //Panels
         centerPanel = new CenterPanel();
         southPanel = new SouthPanel();
+        
+        centerPanel.setSouthPanel(southPanel);
         //Main Frame
         this.setTitle("Tic-Tac-Toe @raru");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
