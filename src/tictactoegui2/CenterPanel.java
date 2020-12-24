@@ -23,6 +23,7 @@ public class CenterPanel extends JPanel implements ActionListener {
 //    private ImageIcon O = new ImageIcon(getClass().getClassLoader().getResource("O.png"));
     private ImageIcon X = new ImageIcon(("src/res/X.png"));
     private ImageIcon O = new ImageIcon(("src/res/O.png"));
+    private ImageIcon BG = new ImageIcon(("src/res/bg.png"));
     
     public CenterPanel() {
         //Assigning  Buttons
@@ -32,6 +33,7 @@ public class CenterPanel extends JPanel implements ActionListener {
             button[i].setPreferredSize(new Dimension(200,200));
             button[i].setFocusable(false);
             button[i].setBackground(Color.BLACK);
+            button[i].setIcon(BG);
             //button Action
             button[i].addActionListener(this);
         }
@@ -68,12 +70,22 @@ public class CenterPanel extends JPanel implements ActionListener {
     public void winnerCheck(){
         //check winning patterns
         if(hor(O) || ver(O) || dia(O)){
-            System.out.println("do something");
-        }else if(hor(X) || ver(X) || dia(X)){
-            System.out.println("do something");
-        }else if (draw(X,O)){
+            System.out.println("Player O wins!");
             for(int i = 0;i < 9;i++){
-                button[i].setIcon(null);
+                button[i].setBackground(Color.BLACK);
+                button[i].setIcon(BG);
+            }
+        }else if(hor(X) || ver(X) || dia(X)){
+            System.out.println("Player X wins!");
+            for(int i = 0;i < 9;i++){
+                button[i].setBackground(Color.BLACK);
+                button[i].setIcon(BG);
+            }
+        }else if (draw()){
+            System.out.println("Draw!");
+            for(int i = 0;i < 9;i++){
+                button[i].setBackground(Color.BLACK);
+                button[i].setIcon(BG);
             }
         }
     }
@@ -82,7 +94,7 @@ public class CenterPanel extends JPanel implements ActionListener {
         //check horizontal pattern
         int i = 0;
         for(int j = 0; j < 3;j++){
-            if(button[i].getIcon().equals(button[i+1].getIcon()) && button[i+1].getIcon().equals(button[i+2].getIcon()) && button[i] != null){
+            if(button[i].getIcon().equals(button[i+1].getIcon()) && button[i+1].getIcon().equals(button[i+2].getIcon()) && button[i].getIcon().equals(shape)){
                 return true;
             }
             i += 3;
@@ -94,7 +106,7 @@ public class CenterPanel extends JPanel implements ActionListener {
         //check vertical pattern
         int i = 0;
         for(int j = 0; j < 3;j++){
-            if(button[i].getIcon().equals(button[i+3].getIcon()) && button[i+3].getIcon().equals(button[i+6].getIcon()) && button[i] != null){
+            if(button[i].getIcon().equals(button[i+3].getIcon()) && button[i+3].getIcon().equals(button[i+6].getIcon()) && button[i].getIcon().equals(shape)){
                 return true;
             }
             i += 1;
@@ -104,30 +116,30 @@ public class CenterPanel extends JPanel implements ActionListener {
     
     public boolean dia(ImageIcon shape){
         //check vertical pattern
-        for(int j = 0; j < 3;j++){
             int i = 0;
-            if(button[i].getIcon().equals(button[i+4].getIcon()) && button[i+4].getIcon().equals(button[i+8].getIcon()) && button[i].equals(shape)){
+            if(button[i].getIcon().equals(button[i+4].getIcon()) && button[i+4].getIcon().equals(button[i+8].getIcon()) && button[i].getIcon().equals(shape)){
                 return true;
             }
-            if(button[i+2].getIcon().equals(button[i+4].getIcon()) && button[i+4].getIcon().equals(button[i+6].getIcon()) && button[i].equals(shape)){
+            if(button[i+2].getIcon().equals(button[i+4].getIcon()) && button[i+4].getIcon().equals(button[i+6].getIcon()) && button[i+2].getIcon().equals(shape)){
                 return true;
             }
-        }
         return false;
     }
     
-    public boolean draw(ImageIcon shapeX, ImageIcon shapeO){
-        int spotCount = 0;
-        boolean draw = true;
+    public boolean draw(){
+        boolean drawCheck;
+        int freeSpace = 0;
+        
         for(int i = 0;i < 9;i++){
-            if(!button[i].equals(shapeX) || !button[i].equals(shapeO)){
-                spotCount++;
+            if(button[i].getIcon().equals(BG)){
+                freeSpace++;
             }
         }
-        if(spotCount > 0){
-            draw = false;
+        if(freeSpace >= 1){
+            return false;
+        }else{
+            return true;
         }
-        return draw;
     }
     
 }
