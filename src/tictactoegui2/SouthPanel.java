@@ -3,6 +3,7 @@ package tictactoegui2;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -35,16 +36,20 @@ public class SouthPanel extends JPanel {
         
         playerX.setText("Player X = " + xCount);
         playerX.setForeground(Color.WHITE);
+        playerX.setFont(new Font("Calibri",Font.ITALIC,20));
         
         playerO.setText("Player O = " + oCount);
         playerO.setForeground(Color.WHITE);
+        playerO.setFont(new Font("Calibri",Font.ITALIC,20));
         
         draw.setText("Draw = " + drawCount);
         draw.setForeground(Color.WHITE);
+        draw.setFont(new Font("Calibri",Font.ITALIC,20));
         
         this.setPreferredSize(new Dimension(600,100));
         this.setBackground(Color.BLACK);
-        this.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2));
+        //this.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2));
+        this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(10,10,10,10), BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3)));
         
         this.setLayout(new GridBagLayout());
         groupLayout();

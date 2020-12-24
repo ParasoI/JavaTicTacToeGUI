@@ -54,14 +54,15 @@ public class CenterPanel extends JPanel implements ActionListener {
         //button Action when clicked
         for(int i = 0;i < 9;i++){
             if(e.getSource() == button[i]){
-                turn++;
-                    
-                if(turn % 2 == 0){
-                    button[i].setIcon(O);
-                    button[i].setBackground(Color.decode("#FFAF26"));
-                }else{
-                    button[i].setIcon(X);
-                    button[i].setBackground(Color.decode("#2676FF"));
+                if(button[i].getIcon().equals(BG)){
+                    turn++;
+                    if(turn % 2 == 0){
+                        button[i].setIcon(O);
+                        button[i].setBackground(Color.decode("#FFAF26"));
+                    }else{
+                        button[i].setIcon(X);
+                        button[i].setBackground(Color.decode("#2676FF"));
+                    }
                 }
                 
                 winnerCheck();
@@ -111,7 +112,7 @@ public class CenterPanel extends JPanel implements ActionListener {
     }
     
     public boolean dia(ImageIcon shape){
-        //check vertical pattern
+        //check diagonal pattern
             int i = 0;
             if(button[i].getIcon().equals(button[i+4].getIcon()) && button[i+4].getIcon().equals(button[i+8].getIcon()) && button[i].getIcon().equals(shape)){
                 return true;
