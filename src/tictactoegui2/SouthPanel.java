@@ -46,10 +46,10 @@ public class SouthPanel extends JPanel {
         draw.setForeground(Color.WHITE);
         draw.setFont(new Font("Calibri",Font.ITALIC,20));
         
-        this.setPreferredSize(new Dimension(600,100));
+        this.setPreferredSize(new Dimension(600,50));
         this.setBackground(Color.BLACK);
         //this.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2));
-        this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(10,10,10,10), BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3)));
+        this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5), BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3)));
         
         this.setLayout(new GridBagLayout());
         groupLayout();
