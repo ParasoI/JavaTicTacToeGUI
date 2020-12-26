@@ -23,12 +23,13 @@ public class CenterPanel extends JPanel implements ActionListener {
     private SouthPanel southPanel;
     private SidePanel sidePanelWest;
     private SidePanel sidePanelEast;
-//    private ImageIcon X = new ImageIcon(getClass().getClassLoader().getResource("X.png"));
-//    private ImageIcon O = new ImageIcon(getClass().getClassLoader().getResource("O.png"));
-    private ImageIcon X = new ImageIcon(("src/res/X.png"));
-    private ImageIcon O = new ImageIcon(("src/res/O.png"));
-    private ImageIcon BG = new ImageIcon(("src/res/bg.png"));
-    
+    private ImageIcon X = new ImageIcon(getClass().getClassLoader().getResource("X.png"));
+    private ImageIcon O = new ImageIcon(getClass().getClassLoader().getResource("O.png"));
+    private ImageIcon BG = new ImageIcon(getClass().getClassLoader().getResource("bg.png"));
+//    private ImageIcon X = new ImageIcon(("src/res/X.png"));
+//    private ImageIcon O = new ImageIcon(("src/res/O.png"));
+//    private ImageIcon BG = new ImageIcon(("src/res/bg.png"));
+//    
     public CenterPanel() {
         
         //Assigning  Buttons

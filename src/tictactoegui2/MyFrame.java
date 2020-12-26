@@ -1,6 +1,7 @@
 package tictactoegui2;
 
 import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -14,8 +15,12 @@ public class MyFrame extends JFrame {
     private SouthPanel southPanel;
     private SidePanel sidePanelWest;
     private SidePanel sidePanelEast;
+    private ImageIcon logo;
 
     public MyFrame() {
+        
+        logo = new ImageIcon(getClass().getClassLoader().getResource("logo.png"));
+        
         //Panels
         northPanel = new NorthPanel();
         centerPanel = new CenterPanel();
@@ -29,10 +34,11 @@ public class MyFrame extends JFrame {
         centerPanel.setSidePanel(sidePanelWest, sidePanelEast);
         
         //Main Frame
-        this.setTitle("Tic-Tac-Toe @raru");
+        this.setTitle("Tic-Tac-Toe @ParasoI");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(700,700);
         this.setResizable(false);
+        this.setIconImage(logo.getImage());
         this.setLayout(new BorderLayout());
         this.add(northPanel, BorderLayout.NORTH);
         this.add(centerPanel, BorderLayout.CENTER);
