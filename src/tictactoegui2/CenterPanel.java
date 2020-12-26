@@ -29,7 +29,7 @@ public class CenterPanel extends JPanel implements ActionListener {
 //    private ImageIcon X = new ImageIcon(("src/res/X.png"));
 //    private ImageIcon O = new ImageIcon(("src/res/O.png"));
 //    private ImageIcon BG = new ImageIcon(("src/res/bg.png"));
-//    
+    
     public CenterPanel() {
         
         //Assigning  Buttons
