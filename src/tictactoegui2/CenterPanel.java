@@ -19,6 +19,7 @@ public class CenterPanel extends JPanel implements ActionListener {
 
     private JButton[] button;
     private int turn = 0;
+    private NorthPanel northPanel;
     private SouthPanel southPanel;
 //    private ImageIcon X = new ImageIcon(getClass().getClassLoader().getResource("X.png"));
 //    private ImageIcon O = new ImageIcon(getClass().getClassLoader().getResource("O.png"));
@@ -73,18 +74,19 @@ public class CenterPanel extends JPanel implements ActionListener {
     public void winnerCheck(){
         //check winning patterns
         if(hor(O) || ver(O) || dia(O)){
-            System.out.println("Player O wins!");
             addCount(2);
+            displayResult(2);
             reset();
         }else if(hor(X) || ver(X) || dia(X)){
-            System.out.println("Player X wins!");
             addCount(1);
+            displayResult(1);
             reset();
         }else if (draw()){
-            System.out.println("Draw!");
             addCount(3);
+            displayResult(3);
             reset();
         }
+        
     }
     
     public boolean hor(ImageIcon shape){
@@ -147,6 +149,10 @@ public class CenterPanel extends JPanel implements ActionListener {
         turn = 0;
     }
     
+    public void setNorthPanel(NorthPanel northPanel){
+        this.northPanel = northPanel;
+    }
+    
     public void setSouthPanel(SouthPanel southPanel){
         this.southPanel = southPanel;
     }
@@ -164,6 +170,10 @@ public class CenterPanel extends JPanel implements ActionListener {
                 break;
         }
         southPanel.displayCount();
+    }
+    
+    public void displayResult(int num){
+        northPanel.setText(num);
     }
     
 }

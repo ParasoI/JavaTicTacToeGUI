@@ -20,6 +20,7 @@ public class MyFrame extends JFrame {
         southPanel = new SouthPanel();
         
         //action setters getters
+        centerPanel.setNorthPanel(northPanel);
         centerPanel.setSouthPanel(southPanel);
         
         //Main Frame
