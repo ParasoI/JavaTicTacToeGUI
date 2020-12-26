@@ -55,14 +55,17 @@ public class NorthPanel extends JPanel {
             case 1:
                 resultLabel.setForeground(Color.CYAN);
                 resultLabel.setText("Player X wins!");
+                this.setBackground(Color.BLUE);
                 break;
             case 2:
                 resultLabel.setForeground(Color.ORANGE);
                 resultLabel.setText("Player O wins!");
+                this.setBackground(Color.decode("#FFAF26"));
                 break;
             case 3:
                 resultLabel.setForeground(Color.lightGray);
                 resultLabel.setText("It's a DRAW!");
+                this.setBackground(Color.BLACK);
                 break;
         }
     }

@@ -21,6 +21,8 @@ public class CenterPanel extends JPanel implements ActionListener {
     private int turn = 0;
     private NorthPanel northPanel;
     private SouthPanel southPanel;
+    private SidePanel sidePanelWest;
+    private SidePanel sidePanelEast;
 //    private ImageIcon X = new ImageIcon(getClass().getClassLoader().getResource("X.png"));
 //    private ImageIcon O = new ImageIcon(getClass().getClassLoader().getResource("O.png"));
     private ImageIcon X = new ImageIcon(("src/res/X.png"));
@@ -76,14 +78,17 @@ public class CenterPanel extends JPanel implements ActionListener {
         if(hor(O) || ver(O) || dia(O)){
             addCount(2);
             displayResult(2);
+            setSidePanelBackground(2);
             reset();
         }else if(hor(X) || ver(X) || dia(X)){
             addCount(1);
             displayResult(1);
+            setSidePanelBackground(1);
             reset();
         }else if (draw()){
             addCount(3);
             displayResult(3);
+            setSidePanelBackground(3);
             reset();
         }
         
@@ -157,6 +162,11 @@ public class CenterPanel extends JPanel implements ActionListener {
         this.southPanel = southPanel;
     }
     
+    public void setSidePanel(SidePanel sidePanelWest, SidePanel sidePanelEast){
+        this.sidePanelWest = sidePanelWest;
+        this.sidePanelEast = sidePanelEast;
+    }
+    
     public void addCount(int count){
         switch(count){
             case 1:
@@ -174,6 +184,23 @@ public class CenterPanel extends JPanel implements ActionListener {
     
     public void displayResult(int num){
         northPanel.setText(num);
+    }
+    
+    public void setSidePanelBackground(int num){
+        switch(num){
+            case 1:
+                sidePanelWest.setBackground(Color.BLUE);
+                sidePanelEast.setBackground(Color.BLUE);
+                break;
+            case 2:
+                sidePanelWest.setBackground(Color.decode("#FFAF26"));
+                sidePanelEast.setBackground(Color.decode("#FFAF26"));
+                break;
+            case 3:
+                sidePanelWest.setBackground(Color.BLACK);
+                sidePanelEast.setBackground(Color.BLACK);
+                break;
+        }
     }
     
 }
