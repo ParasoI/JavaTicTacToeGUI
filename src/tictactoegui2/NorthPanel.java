@@ -53,19 +53,19 @@ public class NorthPanel extends JPanel {
     public void setText(int num){
         switch(num){
             case 1:
-                resultLabel.setForeground(Color.CYAN);
+                resultLabel.setForeground(Color.decode("#0282eb"));
                 resultLabel.setText("Player X wins!");
-                this.setBackground(Color.BLUE);
+                this.setBackground(Color.decode("#56d5e8"));
                 break;
             case 2:
-                resultLabel.setForeground(Color.ORANGE);
+                resultLabel.setForeground(Color.decode("#fff833"));
                 resultLabel.setText("Player O wins!");
-                this.setBackground(Color.decode("#FFAF26"));
+                this.setBackground(Color.decode("#e6b65c"));
                 break;
             case 3:
                 resultLabel.setForeground(Color.lightGray);
                 resultLabel.setText("It's a DRAW!");
-                this.setBackground(Color.BLACK);
+                this.setBackground(Color.DARK_GRAY);
                 break;
         }
     }

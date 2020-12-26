@@ -62,10 +62,10 @@ public class CenterPanel extends JPanel implements ActionListener {
                     turn++;
                     if(turn % 2 == 0){
                         button[i].setIcon(O);
-                        button[i].setBackground(Color.decode("#FFAF26"));
+                        button[i].setBackground(Color.decode("#ffb833"));
                     }else{
                         button[i].setIcon(X);
-                        button[i].setBackground(Color.decode("#2676FF"));
+                        button[i].setBackground(Color.decode("#02d5ff"));
                     }
                 }
                 
@@ -190,16 +190,16 @@ public class CenterPanel extends JPanel implements ActionListener {
     public void setSidePanelBackground(int num){
         switch(num){
             case 1:
-                sidePanelWest.setBackground(Color.BLUE);
-                sidePanelEast.setBackground(Color.BLUE);
+                sidePanelWest.setBackground(Color.decode("#56d5e8"));
+                sidePanelEast.setBackground(Color.decode("#56d5e8"));
                 break;
             case 2:
-                sidePanelWest.setBackground(Color.decode("#FFAF26"));
-                sidePanelEast.setBackground(Color.decode("#FFAF26"));
+                sidePanelWest.setBackground(Color.decode("#e6b65c"));
+                sidePanelEast.setBackground(Color.decode("#e6b65c"));
                 break;
             case 3:
-                sidePanelWest.setBackground(Color.BLACK);
-                sidePanelEast.setBackground(Color.BLACK);
+                sidePanelWest.setBackground(Color.DARK_GRAY);
+                sidePanelEast.setBackground(Color.DARK_GRAY);
                 break;
         }
     }
